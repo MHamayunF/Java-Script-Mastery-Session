@@ -1,0 +1,451 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div>
+            <div class="background">
+                <input type="text" id="inputField" class="inputField" placeholder="0">
+                <div class="row1">
+                    <button  class="AC" onclick="clearInput('')">AC</button>
+                    <button onclick="slice()" class="X">⌫</button>
+                    <button class="mod" onclick="appendOperator('%')">%</button>
+                    <button class="add" onclick="appendOperator('+')">+</button>
+                </div>
+                <div class="row2">
+                    <button class="seven" onclick="appendValue('7')">7</button>
+                    <button class="eight" onclick="appendValue('8')">8</button>
+                    <button class="nine" onclick="appendValue('9')">9</button>
+                    <button class="mul" onclick="appendOperator('*')">*</button>
+                </div>
+                <div class="row3">
+                    <button class="four" onclick="appendValue('4')">4</button>
+                    <button class="five" onclick="appendValue('5')">5</button>
+                    <button class="six" onclick="appendValue('6')">6</button>
+                    <button class="sub" onclick="appendOperator('-')">-</button>
+                </div>
+                <div class="row4">
+                    <button class="one" onclick="appendValue('1')">1</button>
+                    <button class="two" onclick="appendValue('2')">2</button>
+                    <button class="three" onclick="appendValue('3')">3</button>
+                    <button class="div" onclick="appendOperator('/')">/</button>
+                </div>
+                <div class="row5">
+                    <button class="zero" onclick="appendValue('0')">0</button>
+                    <button class="doublezero" onclick="appendValue('00')">00</button>
+                    <button class="dot" onclick="appendValue('.')">.</button>
+                    <button class="equal" onclick="calculateResult()">=</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+                   function appendValue(value) {
+                        const inputField = document.getElementById('inputField');
+                        if (inputField.value === "0") {
+                            inputField.value = value;
+                        } else {
+                            inputField.value += value;
+                        }
+                    }
+
+                    function appendOperator(operator) {
+                        const inputField = document.getElementById('inputField');
+                        inputField.value += " " + operator + " ";
+                    }
+                    function clearInput() {
+                        document.getElementById('inputField').value = "0";
+                    }
+                    function calculateResult() {
+                        const inputField = document.getElementById('inputField');
+                        try {
+                            inputField.value = eval(inputField.value);
+                        } catch (error) {
+                            inputField.value = "Error";
+                        }
+                    }
+                    function slice(){
+                        inputField.value = inputField.value.slice(0,-1);
+                    }
+                  
+        </script>
+
+
+
+        <style>
+            .background{
+                background-color: black;
+                width: 350px;
+                height: 580px;
+                margin: 20px auto;
+                border-radius: 10px;
+            }
+            .inputField{
+                background-color: black;
+                color: white;
+                font-size: 20px;
+                position: absolute;
+                width: 300px;
+                height: 50px;
+                text-align: right;
+                border: none;
+                margin-top: 50px;
+                margin-left: 25px;
+                border-radius: 20px;
+            }
+            .row1 {
+                position: absolute;
+                margin-top: 130px;
+                margin-left: 0;
+                width: 350px;
+                height: 70px;
+                display: flex;
+                background-color: black;
+            }
+
+            .row1 .AC {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: darkgrey;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row1 .AC:hover {
+            background-color: grey;        
+            }
+            .row1 .X {
+                width: 65px;
+                height: 65px;
+                padding: 0;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: darkgrey;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row1 .X:hover {
+            background-color: grey;        
+            }
+            .row1 .mod {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: darkgrey;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row1 .mod:hover {
+            background-color: grey;        
+            }
+            .row1 .add {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: orange;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row1 .add:hover {
+            background-color: rgb(199, 243, 3);        
+            }
+            .row2 {
+                position: absolute;
+                margin-top: 210px;
+                margin-left: 0;
+                width: 350px;
+                height: 70px;
+                display: flex;
+                background-color: black;
+            }
+         
+            .row2 .seven {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row2 .seven:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row2 .eight {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row2 .eight:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row2 .nine {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row2 .nine:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row2 .mul {
+                padding-top: 5px;
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: orange;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row2 .mul:hover {
+            background-color: rgb(199, 243, 3);        
+            }
+            .row3 {
+                position: absolute;
+                margin-top: 290px;
+                margin-left: 0;
+                width: 350px;
+                height: 70px;
+                display: flex;
+                background-color: black;
+            }
+          
+            .row3 .four {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row3 .four:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row3 .five {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row3 .five:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row3 .six {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row3 .six:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row3 .sub {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: orange;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row3 .sub:hover {
+            background-color: rgb(199, 243, 3);        
+            }
+            .row4 {
+                position: absolute;
+                margin-top: 370px;
+                margin-left: 0;
+                width: 350px;
+                height: 70px;
+                display: flex;
+                background-color: black;
+            }
+            .row4 .one {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row4 .one:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row4 .two {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row4 .two:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row4 .three {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row4 .three:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row4 .div {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: orange;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row4 .div:hover {
+            background-color: rgb(199, 243, 3);        
+            }
+            .row5 {
+                position: absolute;
+                margin-top: 450px;
+                margin-left: 0;
+                width: 350px;
+                height: 70px;
+                display: flex;
+                background-color: black;
+            }
+         
+            .row5 .zero {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row5 .zero:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row5 .doublezero {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row5 .doublezero:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row5 .dot {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: rgb(75, 75, 75);
+                color: white;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+            }
+            .row5 .dot:hover {
+            background-color: rgb(90, 55, 55);        
+            }
+            .row5 .equal {
+                width: 65px;
+                height: 65px;
+                margin-left: 18px;
+                border-radius: 50px;
+                background-color: orange;
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+                border: none; 
+                cursor: pointer; 
+                
+            }
+            .row5 .equal:hover {
+            background-color: rgb(199, 243, 3);        
+            }
+        </style>
+    </body>
+</html>
