@@ -1,0 +1,44 @@
+#gamecontainer{
+    text-align: center;
+}
+#gamebox{
+    border: 3px solid;  
+    background-color: forestgreen;
+  
+}
+#score{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100px;
+}
+#resetbtn{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    width: 200px;
+    height: 50px;
+    border: 4px solid;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color:  rgb(255, 102, 0);
+}
+#startbtn{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    width: 200px;
+    height: 50px;
+    border: 4px solid;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(255, 238, 0);
+}
+#player1{
+    position: absolute;
+    margin-top: -130px;
+    margin-left: 350px;
+    font-size: 20px;
+}
+#player2{
+    position: absolute;
+    margin-top: -130px;
+    margin-left: 930px;
+    font-size: 20px;
+}
